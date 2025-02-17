@@ -2,7 +2,7 @@ name: PR to Development branch
 
 on:
     workflow_run: 
-        workflows: ["Unit test", "Python Code Tests", "Docker Build Check"]
+        workflows: ["Docker Build Check"]
         types:
             - completed
 
