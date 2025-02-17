@@ -2,12 +2,13 @@ name: PR to Development branch
 
 on:
     workflow_run: 
-        workflows: ["Unit test", "Python Code Tests"]
+        workflows: ["Unit test", "Python Code Tests", "Docker Build Check"]
         types:
             - completed
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   pr-to-dev:
