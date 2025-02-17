@@ -4,28 +4,31 @@ on:
   push:
     branches:
       - feature/**
+      - main
   pull_request:
     branches:
       - feature/**
+      - main
 
 permissions:
   contents: read
 
-jobs:
-  link-check:
+jobs:  
+  unit-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: Build the docker
-        run: docker compose build
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.8
 
       - name: Install Dependencies
         run: |
           pip install --no-cache-dir -r app/requirements.txt
-          pip install pytest
 
       - name: Run Tests
         run: |

@@ -3,10 +3,10 @@ name: Docker Build Check
 on:
   push:
     branches:
-      - feature/docker-configuration
+      - main
   pull_request:
     branches:
-      - feature/docker-configuration
+      - main
 
 jobs:
   build-docker:

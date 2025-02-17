@@ -4,3 +4,4 @@ celery
 redis
 pymongo
 httpx
+pytest

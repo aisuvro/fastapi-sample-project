@@ -1,18 +1,10 @@
 services:
   fastapi:
+    image: aisuvro/fast-api-ci-cd:latest
     build:
       context: .
-      dockerfile: docker/fastapi/Dockerfile
     ports:
       - "8000:8000"
-    depends_on:
-      - redis
-      - mongodb
-
-  celery:
-    build:
-      context: .
-      dockerfile: docker/celery/Dockerfile
     depends_on:
       - redis
       - mongodb
