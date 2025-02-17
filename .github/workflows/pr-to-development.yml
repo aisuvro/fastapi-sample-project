@@ -36,6 +36,6 @@ jobs:
             - **Source branch:** `${{ github.ref_name }}`
             - **Target branch:** `development`
 
-          base: development
+          base: "${{ github.base_ref }}"
           labels: automated, github-actions
           draft: false
