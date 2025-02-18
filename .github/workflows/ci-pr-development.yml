@@ -1,11 +1,10 @@
 name: PR to Development branch
 
 on:
-  release:
-    types:
-      - published
-      - created
-      - edited
+    workflow_run: 
+        workflows: ["Docker Build Check"]
+        types:
+            - completed
 
 permissions:
   contents: read
