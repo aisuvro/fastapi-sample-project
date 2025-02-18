@@ -12,6 +12,10 @@ app = FastAPI()
 def read_root():
     return {"message": "FastAPI with Celery and Docker Compose"}
 
+@app.get("/api/v1")
+def read_root():
+    return {"message": "FastAPI with Celery and Docker Compose API v1"}
+
 @app.post("/tasks/{data}")
 def run_task(data: str):
     task = create_task.delay(data)
