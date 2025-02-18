@@ -22,13 +22,13 @@ jobs:
             env:
               GH_TOKEN: ${{ secrets.GIT_TOKEN }}
             run: |
-              if gh pr list --base development --head feature/api-v2 --state open | grep -q "feature/api-v2"; then
+              if gh pr list --base development --head feature/api-v1 --state open | grep -q "feature/api-v1"; then
                 echo "PR already exists, skipping creation."
               else
                 gh pr create \
                   --base development \
-                  --head feature/api-v2 \
-                  --title "Auto PR: Merge feature/api-v2 into development" \
+                  --head feature/api-v1 \
+                  --title "Auto PR: Merge feature/api-v1 into development" \
                   --body "This pull request was automatically created by GitHub Actions."
                 echo "PR created successfully."
               fi
