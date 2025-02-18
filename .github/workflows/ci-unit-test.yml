@@ -1,0 +1,33 @@
+name: Unit test
+
+on:
+  push:
+    branches:
+      - feature/**
+  pull_request:
+    branches:
+      - feature/**
+
+permissions:
+  contents: read
+
+jobs:  
+  unit-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: |
+          pip install --no-cache-dir -r app/requirements.txt
+
+      - name: Run Tests
+        run: |
+          pytest app/tests/
