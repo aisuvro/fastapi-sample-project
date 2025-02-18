@@ -20,6 +20,10 @@ def read_root():
 def read_root():
     return {"message": "FastAPI with Celery and Docker Compose API v2 and CI pipeline"}
 
+@app.get("/api/v2/tasks")
+def read_root():
+    return {"message": "FastAPI with Celery and Docker Compose API v2 tasks for CI pipeline"}
+
 @app.post("/tasks/{data}")
 def run_task(data: str):
     task = create_task.delay(data)
